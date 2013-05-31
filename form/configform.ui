@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConfigForm</class>
+ <widget class="QWidget" name="ConfigForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>icon </string>
+     </property>
+     <!--By Vlad-->
+     <property name="whatsThis">
+      <string>Icon </string>
+     </property>
+     <!--end By Vlad-->
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="3">
+    <widget class="KIconButton" name="kiconbutton">
+     <property name="minimumSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <!--By Vlad-->
+     <property name="whatsThis">
+      <string>Icon </string>
+     </property>
+     <!--end By Vlad-->
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>command </string>
+     </property>
+     <!--By Vlad-->
+     <property name="whatsThis">
+      <string>Command with arguments </string>
+     </property>
+     <!--end By Vlad-->
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="3">
+    <widget class="KUrlRequester" name="kurlrequester"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>animation speed </string>
+     </property>
+     <!--By Vlad-->
+     <property name="whatsThis">
+      <string>animation speed </string>
+     </property>
+     <!--end By Vlad-->
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="3">
+    <widget class="KIntSpinBox" name="kintspinbox" >
+     <property name="minimum">
+      <number>50</number>
+     </property>
+     <property name="maximum">
+      <number>2000</number>
+     </property>
+    </widget>
+   </item>
+   
+   <!--By Vlad-->
+   <item row="3" column="0">
+    <widget class="QLabel" name="label2">
+     <property name="text">
+      <string>Tooltip activated </string>
+     </property>
+     <!--By Vlad-->
+     <property name="whatsThis">
+      <string>If activated, will show the command in a tooltip. </string>
+     </property>
+     <!--end By Vlad-->
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="3">
+    <widget class="QCheckBox" name="checkbox"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label3">
+     <property name="text">
+      <string>Scale factor </string>
+     </property>
+     <!--By Vlad-->
+     <property name="whatsThis">
+      <string>Size of the icon when there is no mouse over it, in comparison with max size when the mouse hovers. </string>
+     </property>
+     <!--end By Vlad-->
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLabel" name="label3a">
+     <property name="text">
+      <string>10% </string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="2">
+    <widget class="QSlider" name="qslider">
+	 <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>10</number>
+	</property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+	 <property name="tickPosition">
+          <enum>QSlider::TicksBelow</enum>
+         </property>
+	 <property name="tickInterval">
+          <number>1</number>
+         </property>
+	 <property name="pageStep">
+          <number>3</number>
+         </property>
+	 <property name="toolTip">
+          <string>The icon max size is allways 100%</string>
+         </property>
+    </widget>
+   </item>   
+   <item row="4" column="3">
+    <widget class="QLabel" name="label3b">
+     <property name="text">
+      <string>100% </string>
+     </property>
+    </widget>
+   </item>
+   
+   <item row="5" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>125</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KIconButton</class>
+   <extends>QPushButton</extends>
+   <header>kicondialog.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QFrame</extends>
+   <header>kurlrequester.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
