@@ -27,6 +27,8 @@
 #include <KStandardDirs>
 #include "klickerlauncher.h"
 
+int alt_dir=1;//1: the las thing it did was shrinking; 2: last thing was growing
+
 KlickerLauncher::KlickerLauncher(QObject *parent, const QVariantList &args) :
 	Plasma::Applet(parent, args)
 {
@@ -107,7 +109,8 @@ void KlickerLauncher:: hoverEnterEvent ( QGraphicsSceneHoverEvent * event )
 {
 m_timer->setDirection ( QTimeLine::Forward );
 if ( m_timer->state()==QTimeLine::NotRunning)
-m_timer->start();
+if(alt_dir==1)m_timer->start();
+alt_dir=2;
 }
 //=============================================================================
 
@@ -115,13 +118,20 @@ void KlickerLauncher:: hoverLeaveEvent ( QGraphicsSceneHoverEvent * event )
 {
   m_timer->setDirection ( QTimeLine::Backward );
   if ( m_timer->state()==QTimeLine::NotRunning)
-  m_timer->start();
+  if(alt_dir==2)m_timer->start();
+  alt_dir=1;
 }
 //============================================================================
+ //it should be better a click event, not just press.
  void KlickerLauncher:: mousePressEvent ( QGraphicsSceneMouseEvent * event )
 {
   if ( event->button() == Qt::LeftButton)
   m_process->start();
+  
+  m_timer->setDirection ( QTimeLine::Backward );
+  if ( m_timer->state()==QTimeLine::NotRunning)
+  if(alt_dir==2)m_timer->start();
+  alt_dir=1;
 }
 //============================================================================
 void KlickerLauncher::createConfigurationInterface(KConfigDialog *parent)
